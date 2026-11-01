@@ -1,0 +1,21 @@
+import { spawn, execSync } from 'node:child_process';
+import http from 'node:http';
+import { readFileSync, existsSync, statSync, mkdirSync, readdirSync } from 'node:fs';
+import { join, extname } from 'node:path';
+import { gzipSync } from 'node:zlib';
+const CHROME = process.env.CHROME_PATH || `${process.env.HOME}/.cache/ms-playwright/chromium-1217/chrome-linux64/chrome`;
+const types = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.png': 'image/png' };
+const srv = http.createServer((q, r) => { let p = join('out', q.url.split('?')[0]); if (existsSync(p) && statSync(p).isDirectory()) p = join(p, 'index.html'); if (!existsSync(p)) { r.writeHead(404); return r.end(); } const buf = readFileSync(p); const ct = types[extname(p)] || 'application/octet-stream'; if (/html|css|javascript/.test(ct)) { r.writeHead(200, { 'content-type': ct, 'content-encoding': 'gzip', 'cache-control': 'max-age=31536000' }); r.end(gzipSync(buf)); } else { r.writeHead(200, { 'content-type': ct }); r.end(buf); } }).listen(4174);
+mkdirSync('reports', { recursive: true });
+const chrome = spawn(CHROME, ['--headless', '--no-sandbox', '--disable-gpu', '--remote-debugging-port=9223', 'about:blank'], { stdio: 'ignore' });
+await new Promise((r) => setTimeout(r, 3000));
+try { await new Promise((res, rej) => spawn('npx', ['lighthouse', 'http://localhost:4174/', '--port=9223', '--only-categories=performance,accessibility', '--output=json', '--output-path=reports/lh.json', '--quiet'], { stdio: 'inherit' }).on('exit', (c) => (c ? rej(new Error('lh ' + c)) : res()))); } finally { chrome.kill(); }
+const j = JSON.parse(readFileSync('reports/lh.json', 'utf8'));
+const a = j.audits;
+console.log(`Performance ${Math.round(j.categories.performance.score * 100)} | Accessibility ${Math.round(j.categories.accessibility.score * 100)} | LCP ${a['largest-contentful-paint'].displayValue} | CLS ${a['cumulative-layout-shift'].displayValue}`);
+const html = readFileSync('out/index.html', 'utf8');
+const nomod = [...html.matchAll(/<script[^>]*src="([^"]+)"[^>]*noModule/gi)].map((m) => m[1]);
+const srcs = [...new Set([...html.matchAll(/\/_next\/static\/[^"' ]+\.js/g)].map((m) => m[0]))].filter((s) => !nomod.includes(s));
+const js = srcs.reduce((t, s) => t + gzipSync(readFileSync('out' + s)).length, 0);
+console.log(`JS gzip loaded by modern browsers: ${(js / 1024).toFixed(1)} KB (limit 150)`);
+srv.close();

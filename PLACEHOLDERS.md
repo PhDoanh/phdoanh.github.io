@@ -1,0 +1,43 @@
+# Remaining placeholders (39)
+
+| Placeholder | Location |
+|---|---|
+| goatcounter-code | `content/site.json:3` |
+| full-name | `content/site.json:5` |
+| role | `content/site.json:5` |
+| meta-description | `content/site.json:6` |
+| full-name | `content/site.json:9` |
+| role | `content/site.json:9` |
+| one-sentence-intro | `content/site.json:9` |
+| about-paragraph | `content/site.json:10` |
+| skill-1 | `content/site.json:11` |
+| skill-2 | `content/site.json:11` |
+| skill-3 | `content/site.json:11` |
+| skill-4 | `content/site.json:11` |
+| skill-5 | `content/site.json:11` |
+| skill-6 | `content/site.json:11` |
+| project-1-title | `content/site.json:13` |
+| project-1-description | `content/site.json:13` |
+| project-1-tech | `content/site.json:13` |
+| project-1-url | `content/site.json:13` |
+| project-2-title | `content/site.json:14` |
+| project-2-description | `content/site.json:14` |
+| project-2-tech | `content/site.json:14` |
+| project-2-url | `content/site.json:14` |
+| project-3-title | `content/site.json:15` |
+| project-3-description | `content/site.json:15` |
+| project-3-tech | `content/site.json:15` |
+| project-3-url | `content/site.json:15` |
+| milestone-1-period | `content/site.json:18` |
+| milestone-1-title | `content/site.json:18` |
+| milestone-1-detail | `content/site.json:18` |
+| milestone-2-period | `content/site.json:19` |
+| milestone-2-title | `content/site.json:19` |
+| milestone-2-detail | `content/site.json:19` |
+| milestone-3-period | `content/site.json:20` |
+| milestone-3-title | `content/site.json:20` |
+| milestone-3-detail | `content/site.json:20` |
+| email | `content/site.json:22` |
+| github-url | `content/site.json:22` |
+| linkedin-url | `content/site.json:22` |
+| blog-url | `content/site.json:22` |
