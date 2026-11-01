@@ -1,0 +1,23 @@
+{
+  "siteUrl": "https://phdoanh.github.io",
+  "goatcounterCode": "[PLACEHOLDER: goatcounter-code]",
+  "seo": {
+    "title": "[PLACEHOLDER: full-name] — [PLACEHOLDER: role]",
+    "description": "[PLACEHOLDER: meta-description]"
+  },
+  "ui": { "skip": "Skip the journey", "skipTarget": "Flat summary", "scrollHint": "Scroll to fly", "summaryTitle": "Summary", "visit": "Visit", "blog": "Read the blog" },
+  "hero": { "name": "[PLACEHOLDER: full-name]", "role": "[PLACEHOLDER: role]", "tagline": "[PLACEHOLDER: one-sentence-intro]" },
+  "about": { "title": "About", "body": "[PLACEHOLDER: about-paragraph]" },
+  "skills": { "title": "Skills", "items": ["[PLACEHOLDER: skill-1]", "[PLACEHOLDER: skill-2]", "[PLACEHOLDER: skill-3]", "[PLACEHOLDER: skill-4]", "[PLACEHOLDER: skill-5]", "[PLACEHOLDER: skill-6]"] },
+  "projects": { "title": "Projects", "items": [
+    { "title": "[PLACEHOLDER: project-1-title]", "description": "[PLACEHOLDER: project-1-description]", "tech": ["[PLACEHOLDER: project-1-tech]"], "link": "[PLACEHOLDER: project-1-url]" },
+    { "title": "[PLACEHOLDER: project-2-title]", "description": "[PLACEHOLDER: project-2-description]", "tech": ["[PLACEHOLDER: project-2-tech]"], "link": "[PLACEHOLDER: project-2-url]" },
+    { "title": "[PLACEHOLDER: project-3-title]", "description": "[PLACEHOLDER: project-3-description]", "tech": ["[PLACEHOLDER: project-3-tech]"], "link": "[PLACEHOLDER: project-3-url]" }
+  ] },
+  "timeline": { "title": "Timeline", "items": [
+    { "period": "[PLACEHOLDER: milestone-1-period]", "title": "[PLACEHOLDER: milestone-1-title]", "detail": "[PLACEHOLDER: milestone-1-detail]" },
+    { "period": "[PLACEHOLDER: milestone-2-period]", "title": "[PLACEHOLDER: milestone-2-title]", "detail": "[PLACEHOLDER: milestone-2-detail]" },
+    { "period": "[PLACEHOLDER: milestone-3-period]", "title": "[PLACEHOLDER: milestone-3-title]", "detail": "[PLACEHOLDER: milestone-3-detail]" }
+  ] },
+  "contact": { "title": "Contact", "email": "[PLACEHOLDER: email]", "github": "[PLACEHOLDER: github-url]", "linkedin": "[PLACEHOLDER: linkedin-url]", "blog": "[PLACEHOLDER: blog-url]" }
+}
